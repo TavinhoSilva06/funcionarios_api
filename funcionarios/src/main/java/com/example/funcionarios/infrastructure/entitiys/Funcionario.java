@@ -8,17 +8,23 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "usuario")
+@Table(name = "Funcionario")
 @Entity
 public class Funcionario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "email", unique = true)
-    private String email;
 
     @Column(name = "nome")
     private String nome;
+
+    @Column(name = "profissão")
+    private String profissao;
+
+    @Column(name = "modelo")
+    private String modelo;
+
+    @Column(name = "salario")
+    private Double salario;
 }

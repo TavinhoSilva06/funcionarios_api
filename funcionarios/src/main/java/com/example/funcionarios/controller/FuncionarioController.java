@@ -21,13 +21,13 @@ public class FuncionarioController {
     }
 
     @GetMapping
-    public ResponseEntity<Funcionario> buscarFuncionarioPorEmail(@RequestParam String email) {
-        return ResponseEntity.ok(funcionarioService.buscarFuncionarioPorEmail(email));
+    public ResponseEntity<Funcionario> buscarFuncionarioPorNome(@RequestParam String nome) {
+        return ResponseEntity.ok(funcionarioService.buscarFuncionarioPorNome(nome));
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deletarFuncionarioPorEmail(@RequestParam String email) {
-        funcionarioService.deletarFuncionarioPorEmail(email);
+    public ResponseEntity<Void> deletarFuncionarioPorNomeId(@RequestParam String nome) {
+        funcionarioService.deletarFuncionarioPorNome(nome);
         return ResponseEntity.ok().build();
     }
 
