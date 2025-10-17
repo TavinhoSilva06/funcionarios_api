@@ -7,8 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // Anotação que diz que o controller é de padrão REST
-@RequestMapping("/usuario") // Padrão de requisições no localhost
+@RequestMapping("/funcionarios") // Padrão de requisições no localhost
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5500")
 public class FuncionarioController {
 
     private final FuncionarioService funcionarioService;

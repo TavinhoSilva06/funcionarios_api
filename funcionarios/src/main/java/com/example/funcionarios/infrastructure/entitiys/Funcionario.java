@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "Funcionario")
+@Table(name = "funcionario")
 @Entity
 public class Funcionario {
 
@@ -19,7 +19,7 @@ public class Funcionario {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "profissão")
+    @Column(name = "profissao")
     private String profissao;
 
     @Column(name = "modelo")
