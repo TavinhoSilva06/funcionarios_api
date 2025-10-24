@@ -9,7 +9,4 @@ import java.util.Optional;
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Integer> {
 
     Optional<Funcionario> findByNome(String nome); // Quando se usa o Optional, é obrigação criar uma exceção caso a condição não exista
-
-    @Transactional // Anotação feita para caso der um erro, ele não deletar a conta.
-    void deleteByNome(String nome);
 }

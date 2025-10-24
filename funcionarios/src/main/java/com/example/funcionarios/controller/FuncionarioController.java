@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController // Anotação que diz que o controller é de padrão REST
 @RequestMapping("/funcionarios") // Padrão de requisições no localhost
 @RequiredArgsConstructor
@@ -22,15 +24,17 @@ public class FuncionarioController {
     }
 
     @GetMapping
-    public ResponseEntity<Funcionario> buscarFuncionarioPorNome(@RequestParam String nome) {
-        return ResponseEntity.ok(funcionarioService.buscarFuncionarioPorNome(nome));
+    public ResponseEntity<List<Funcionario>> listarTodos() {
+        return ResponseEntity.ok(funcionarioService.listarTodos());
     }
 
-    @DeleteMapping
-    public ResponseEntity<Void> deletarFuncionarioPorNomeId(@RequestParam String nome) {
-        funcionarioService.deletarFuncionarioPorNome(nome);
-        return ResponseEntity.ok().build();
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarFuncionarioPorId(@PathVariable Integer id) {
+        funcionarioService.deletarFuncionarioPorId(id);
+        return ResponseEntity.noContent().build();
     }
+
 
     @PutMapping // Atualiza todos os campos do banco de dados
     public ResponseEntity<Void> atualizarFuncionarioPorId(@RequestParam Integer id, @RequestBody Funcionario funcionario) {
