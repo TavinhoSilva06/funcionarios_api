@@ -3,11 +3,11 @@ FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
 # Copia o arquivo pom.xml e baixa dependências primeiro (para cache)
-COPY pom.xml .
+COPY funcionarios/pom.xml .
 RUN mvn dependency:go-offline -B
 
 # Copia o restante do código e empacota
-COPY src ./src
+COPY funcionarios/src ./src
 RUN mvn clean package -DskipTests
 
 # Etapa 2 — Imagem final leve com apenas o JAR
