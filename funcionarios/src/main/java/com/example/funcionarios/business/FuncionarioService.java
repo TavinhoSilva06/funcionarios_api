@@ -32,6 +32,7 @@ public class FuncionarioService {
         repository.deleteById(id);
     }
 
+    // Método que serve para atualizar algum campo da linha sem interferir nos outros campos
     public void atualizarFuncionarioPorId(Integer id, Funcionario funcionario) {
         Funcionario funcionarioEntity = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
