@@ -28,11 +28,6 @@ public class FuncionarioController {
         return ResponseEntity.ok(funcionarioService.listarTodos());
     }
 
-    @GetMapping("/")
-    public String home() {
-        return "API Funcionários - Servidor Online!";
-    }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarFuncionarioPorId(@PathVariable Integer id) {
