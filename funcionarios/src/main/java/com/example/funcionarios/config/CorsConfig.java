@@ -14,8 +14,12 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // aplica CORS em todos os endpoints
-                        .allowedOrigins("http://localhost:5500", "http://127.0.0.1:5500") // URL do seu frontend
-                        .allowedMethods("GET", "POST", "PUT", "DELETE") // métodos permitidos
+                        .allowedOrigins(
+                            "http://localhost:5500", 
+                            "http://127.0.0.1:5500",
+                            "https://api-crud-java.web.app" // URL do seu frontend em produção
+                        ) // URLs do seu frontend
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // métodos permitidos
                         .allowedHeaders("*") // permite todos os headers
                         .allowCredentials(true); // permite envio de cookies ou autenticação
             }
